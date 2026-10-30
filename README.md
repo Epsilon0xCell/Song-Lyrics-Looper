@@ -1,6 +1,6 @@
 ![songlyricslooper banner](banner.png)
 
-# songlyricslooper
+# Song-Lyrics-Looper
 
 A small Python script that prints the counting lyrics of the three times
 table song: a counting-up chorus, the multiplication verses from 3 times
