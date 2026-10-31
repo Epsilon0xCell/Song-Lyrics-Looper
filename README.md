@@ -6,14 +6,21 @@ A small Python script that prints the counting lyrics of the three times
 table song: a counting-up chorus, the multiplication verses from 3 times
 10 down to 3 times 1, then the chorus again.
 
-Requirements: Python 3, standard library only. The script takes no
-arguments and reads no input.
+Requirements: Python 3, standard library only. The script reads no
+input.
 
 ## Run
 
 ```bash
 python3 songlyricslooper.py
 ```
+
+With no arguments it prints the song and exits 0. `--help` (or `-h`)
+prints a one line usage note and exits 0. Any other argument prints
+the usage note to stderr and exits 2, with none of the song printed.
+I added the argument handling when I moved the song under a main
+guard; before that, every argument was silently ignored and the song
+printed anyway.
 
 ## What it prints
 
@@ -22,12 +29,26 @@ python3 songlyricslooper.py
   followed by the closing line `3 times 1 is 3 of course`.
 - The chorus line twice more, for four chorus lines in total.
 
-The output is fixed: every run prints the same 41 lines and exits 0.
-All ten multiplication facts in the verses were checked against the
-3 times table and are correct.
+The output is fixed: every run prints the same 41 lines. All ten
+multiplication facts in the verses were checked against the 3 times
+table and are correct. The restructure that added the main guard did
+not change a single byte of the output; I checked the new output
+against the old one with cmp before calling it done.
+
+## Tests
+
+```bash
+python3 -m unittest
+```
+
+10 tests, all passing. They pin the full song text byte for byte,
+the 41 line count, the four chorus lines, the verse products in
+order, the closing line, and the argument behavior above, including
+that importing the module prints nothing.
 
 ## Files
 
 - `songlyricslooper.py` - the script
+- `test_songlyricslooper.py` - the unittest suite
 - `LICENSE` - GPL-3.0 license
 - `logo.png`, `banner.png` - project branding
