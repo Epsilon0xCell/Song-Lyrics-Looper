@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" role="img" aria-label="Loch shore: hills, warning boards facing the reader, water with one reed bending and a ring in the shallows, hoofprints in the silt">
+<rect width="1200" height="86" fill="#9aa096"><animate attributeName="fill" values="#9aa096;#878b84;#9aa096" dur="60s" repeatCount="indefinite"/></rect>
+<polygon points="0,86 260,40 520,74 820,36 1200,66 1200,96 0,96" fill="#5f6a5f"/>
+<g fill="#eceae2"><rect x="180" y="58" width="34" height="20"/><polygon points="176,58 216,58 196,44"/><rect x="900" y="54" width="30" height="18"/><polygon points="897,54 933,54 915,42"/></g>
+<rect x="0" y="96" width="1200" height="88" fill="#24382f"/>
+<g fill="none" stroke="#d8dccf" stroke-width="2"><circle cx="760" cy="140" r="4" opacity="0"><animate attributeName="r" values="4;4;30" keyTimes="0;0.55;1" dur="24s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.6;1" dur="24s" repeatCount="indefinite"/></circle><circle cx="330" cy="152" r="4" opacity="0"><animate attributeName="r" values="4;4;26" keyTimes="0;0.5;1" dur="31s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.5;0" keyTimes="0;0.55;1" dur="31s" repeatCount="indefinite"/></circle></g>
+<g stroke="#41584a" stroke-width="3"><line x1="150" y1="180" x2="146" y2="148"><animateTransform attributeName="transform" type="rotate" values="0 150 180;4 150 180;0 150 180" dur="11s" repeatCount="indefinite"/></line><line x1="166" y1="180" x2="164" y2="154"/><line x1="1050" y1="180" x2="1054" y2="150"/></g>
+<g><g fill="#103a3c" stroke="#0b2c2e" stroke-width="2"><rect x="240" y="104" width="120" height="58"/><rect x="440" y="104" width="120" height="58"/><rect x="640" y="104" width="120" height="58"/><rect x="840" y="104" width="120" height="58"/></g><rect x="240" y="154" width="120" height="5" fill="#b23422"/><rect x="440" y="154" width="120" height="5" fill="#b23422"/><rect x="640" y="154" width="120" height="5" fill="#b23422"/><rect x="840" y="154" width="120" height="5" fill="#b23422"/>
+<path d="M262 138 q10 -22 26 -24 q4 -12 10 -14 q4 8 6 14 q20 4 30 20 q2 10 -8 12 l-22 0 q-14 2 -24 -4 q-14 2 -18 -4z" fill="none" stroke="#cea434" stroke-width="4"/>
+<g fill="#0b2c2e"><rect x="292" y="162" width="10" height="22"/><rect x="492" y="162" width="10" height="22"/><rect x="692" y="162" width="10" height="22"/><rect x="892" y="162" width="10" height="22"/></g></g>
+<rect x="0" y="184" width="1200" height="76" fill="#6d6f60"/>
+<polygon points="80,260 300,260 520,196 470,190" fill="#7d7663"/>
+<g fill="none" stroke="#c9c4ae" stroke-width="3"><path d="M600 214 q10 10 20 0"/><path d="M648 230 q10 10 20 0"/><path d="M700 244 q10 10 20 0"/></g>
+</svg>

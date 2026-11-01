@@ -1,4 +1,16 @@
-![songlyricslooper banner](banner.png)
+![Intro scenery](intro-banner.png)
+
+
+# Song-Lyrics-Looper
+
+![Wordmark banner](banner.png)
+
+![Animated scene](scene.svg)
+
+
+> **Small board nailed below the main one:** with no arguments the song prints and the exit is 0; --help and -h print the usage note and exit 0; any other argument prints the usage note to standard error and exits 2; and the output never changes between runs.
+
+
 
 # Song-Lyrics-Looper
 
@@ -8,6 +20,9 @@ table song: a counting-up chorus, the multiplication verses from 3 times
 
 Requirements: Python 3, standard library only. The script reads no
 input.
+
+
+![Separator](sep-heavy.svg)
 
 ## Run
 
@@ -22,6 +37,9 @@ I added the argument handling when I moved the song under a main
 guard; before that, every argument was silently ignored and the song
 printed anyway.
 
+
+![Separator](sep-light.svg)
+
 ## What it prints
 
 - The chorus line `3 6 9 12 15 18 21 24 27 30` twice.
@@ -35,6 +53,9 @@ table and are correct. The restructure that added the main guard did
 not change a single byte of the output; I checked the new output
 against the old one with cmp before calling it done.
 
+
+![Separator](sep-heavy.svg)
+
 ## Tests
 
 ```bash
@@ -45,6 +66,9 @@ python3 -m unittest
 the 41 line count, the four chorus lines, the verse products in
 order, the closing line, and the argument behavior above, including
 that importing the module prints nothing.
+
+
+![Separator](sep-light.svg)
 
 ## Files
 
