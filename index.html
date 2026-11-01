@@ -3,162 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Song Lyrics Looper: what it is, how it runs, where it stops</title>
-<meta name="description" content="Song Lyrics Looper is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.">
+<title>Song-Lyrics-Looper: Kelpie's Loch Warning Signs</title>
+<meta name="description" content="A Python 3 script, standard library only, that reads no input and prints one fixed counting song about the three times table: 41 lines, the same every run.">
 <style>
-:root {
-  --bg: #101214; --panel: #1c1f22; --ink: #eee8dc;
-  --mut: #25292d;
-  --acc: #e8b339; --acc2: #c75432;
-  --line: #1c1f22;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink);
-  font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.55; }
-code, pre, .mono { font-family: 'Consolas', monospace; }
-a { color: var(--acc2); }
-.hero { padding: 3rem 6vw 1rem; }
-.hero img.banner { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; }
-.logo { width: 92px; height: 92px; border-radius: 18px;
-  border: 1px solid var(--line); }
-h1 { font-size: 2.4rem; margin: 0.4em 0 0.1em; }
-h2 { border-bottom: 2px solid var(--acc); padding-bottom: 0.2em;
-  margin-top: 2em; }
-.lede { font-size: 1.15rem; max-width: 62ch; }
-main { padding: 0 6vw 3rem; max-width: 1180px; margin: 0 auto; }
-.grid { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 1rem 1.2rem; }
-.card.pop { animation: rise 0.7s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; } }
-pre.code { background: #101014; color: #e8e6df; padding: 1rem 1.2rem;
-  border-radius: 12px; overflow-x: auto; font-size: 0.86rem;
-  border-left: 5px solid var(--acc); }
-table { border-collapse: collapse; width: 100%; }
-td, th { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem;
-  text-align: left; }
-.shots { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.shots img { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; background: #f4f1e8; }
-footer { padding: 2rem 6vw; border-top: 1px solid var(--line);
-  color: var(--mut); }
-.rail { display: flex; gap: 1.2rem; align-items: flex-start; }
-.rail nav { position: sticky; top: 1rem; min-width: 180px; }
-@media (max-width: 760px) { .rail { flex-direction: column; }
-  .rail nav { position: static; } }
-@media (prefers-reduced-motion: reduce) {
-  .card.pop { animation: none; } * { scroll-behavior: auto; } }
+@font-face{font-family:'Anek Telugu';src:url('fonts/AnekTelugu.ttf') format('truetype');}
+@font-face{font-family:'Bitter';src:url('fonts/Bitter.ttf') format('truetype');}
+:root{--smoke:#5c665c;--teal:#103a3c;--tealdk:#0b2c2e;--gold:#cea434;--ember:#b23422;--off:#f2eee2}
+*{box-sizing:border-box} body{margin:0;background:var(--smoke);color:var(--off);font-family:'Bitter',serif;line-height:1.65}
+h1,h2{font-family:'Anek Telugu',sans-serif;color:var(--gold)}
+.hero{padding:2rem 6vw 1rem;max-width:1080px;margin:0 auto}.hero img.wide{width:100%;height:auto;display:block}
+.water{height:54px;background:#22382f;margin-top:1rem;transition:background 0.6s}
+.hero .row{display:flex;gap:1.1rem;align-items:flex-start;margin-top:1rem}.hero .row img{width:92px;height:92px}
+.hero h1{margin:.1rem 0 .3rem;font-size:2rem}.hero p{max-width:44rem}
+main{padding:0 6vw 3rem;max-width:1080px;margin:0 auto}
+.board{background:var(--teal);border:2px solid var(--tealdk);padding:1.2rem 1.5rem;margin:1.6rem 0;position:relative;background-image:linear-gradient(90deg,transparent 24%,rgba(0,0,0,.25) 25%,transparent 26%,transparent 49%,rgba(0,0,0,.25) 50%,transparent 51%,transparent 74%,rgba(0,0,0,.25) 75%,transparent 76%)}
+.board:before,.board:after{content:'';position:absolute;width:10px;height:10px;border-radius:50%;background:#8a8578;top:10px}
+.board:before{left:10px}.board:after{right:10px}
+.board .foot{height:8px;background:var(--ember);margin:1rem -1.5rem -1.2rem}
+.board h2{margin:.1rem 0 .5rem}.board p{margin:.4rem 0}
+.chalk{background:#101414;padding:1rem 1.2rem;overflow-x:auto;font-family:monospace;color:#e8e4d2}
+.btn{display:inline-block;background:var(--teal);color:var(--gold);font-family:'Anek Telugu',sans-serif;text-decoration:none;padding:.55rem 1.1rem .7rem;border-top:3px solid #d8cba0;position:relative;margin:.3rem .4rem .3rem 0}
+.btn:after{content:'';position:absolute;left:50%;bottom:-12px;width:8px;height:12px;background:var(--tealdk)}
+.btn:hover{color:#e8bc4e}.btn:active{transform:translateY(2px)}
+.btn:focus-visible{outline:2px dashed #e8e2cc;outline-offset:-6px}
+a{color:#e8d9a0}a .shoe{display:inline-block;width:.6em;height:.6em;border:3px solid var(--ember);border-top:none;border-radius:0 0 .6em .6em;margin-right:.4em;vertical-align:baseline}
+a:hover .shoe{background:var(--ember)}
+.shore{border-top:2px solid #39423c;margin:2.2rem auto;position:relative;width:100%;height:0}
+.shore:after{content:'';position:absolute;left:50%;top:-9px;width:4px;height:16px;background:#39423c}
+.shore.short{width:36%}
+table{border-collapse:collapse}td{padding:.15rem .8rem .15rem 0;font-family:monospace;color:#e8e4d2}
+.small{font-size:.92rem}
+footer{padding:0 6vw 2.5rem;max-width:1080px;margin:0 auto;color:#2e362e}
 </style>
 </head>
-<body class="layout-term">
-<!-- This page exists for Song-Lyrics-Looper alone: the layout (terminal-frame),
-     the colors, and the type were picked for this project, not
-     shared with the other project pages. The code block below is
-     copied from the file it names, line for line. If it looks
-     plain, that is because the project is plain, and I would
-     rather the page match the project than dress it up. The one
-     thing I will not do here is oversell: what this project does
-     not do is stated on the page, not hidden from it. -->
+<body>
 <header class="hero">
-  <img class="logo" src="assets/logo.png" alt="Song Lyrics Looper logo">
-  <img class="banner" src="assets/banner.png" alt="">
-  <h1>Song Lyrics Looper</h1>
-  <p class="mono"><a href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper">github.com/Epsilon0xCell/Song-Lyrics-Looper</a></p>
+<img class="wide" src="assets/intro-banner.png" alt="Bare sign posts by a flooded path on a peat dark loch, hoofprints in the shallows">
+<div class="water" id="waterband" aria-hidden="true"></div>
+<div class="row"><img src="assets/logo.png" alt="Warning board with a gold horse head"><div><h1>Song-Lyrics-Looper</h1><p>A Python 3 script, standard library only, reads no input, asks nothing, and prints one fixed counting song about the three times table, then exits. The boards below are read once, in passing, which is all the attention this script asks.</p><p><a class="btn" href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper">Open the repo</a> <a class="btn" href="#proof">The proof board</a></p></div></div>
 </header>
-
 <main>
-  <section class="rail">
-    <nav aria-label="on this page">
-      <p class="mono"><a href="#run">Run it</a><br>
-      <a href="#files">The files</a><br>
-      <a href="#sheets">The sheets</a><br>
-      <a href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper">The repo</a></p>
-    </nav>
-    <div>
-      <p class="lede">Song Lyrics Looper is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.</p>
-      <div class="grid">
-        <div class="card pop"><h3>What it is</h3>
-          <p>Song Lyrics Looper: 3 files, 51 counted
-          lines across Python 49, Markdown 2. One job, done in the
-          open, in files you can read.</p></div>
-        <div class="card pop"><h3>The biggest piece</h3>
-          <p><code>songlyricslooper.py</code> carries the most
-          lines. If the project grows, that file is where the growth
-          lands first, for better or worse.</p></div>
-        <div class="card pop"><h3>The honest gap</h3>
-          <p>No test files yet. That is the honest gap, and the roadmap in the visuals folder says what the first one should cover.</p></div>
-      </div>
-      <section id="run">
-        <h2>Run it</h2>
-        <p>The repo README has the exact commands for this one. The
-        shape is the shape for most of my projects: clone it, read the
-        top file first so you know what will happen, then run it on
-        something you do not mind breaking.</p>
-        <p class="mono">$ git clone https://github.com/Epsilon0xCell/Song-Lyrics-Looper.git<br>$ cd Song-Lyrics-Looper</p>
-      </section>
-      
-  <section aria-label="real code">
-    <h2>The code, as it sits in the repo</h2>
-    <p>From <code>songlyricslooper.py</code>, line 1 on. I did
-    not tidy it for the page. What you see is what the file has.</p>
-    <pre class="code"><code># -*- coding: utf-8 -*-
-&quot;&quot;&quot;
-Created on Tue Nov  7 14:12:13 2023
-
-@author: cy83r-3x71nc710n
-&quot;&quot;&quot;
-
-# Setting variables
-    
-repeat1 = 0
-repeat2 = 0
-
-# Counting up chorus
-
-# Sets countup to value of range operation.
-countup = range(3, 31, 3)
-
-# While loop that checks if repeat1 is less than 2 and if it is continue the program
-
-while repeat1 &lt; 2:
-# Create a for loop that goes through the countup list assigning x as each item in the list
-    for x in countup:</code></pre>
-  </section>
-      <section id="files">
-        <h2>The files that matter</h2>
-        <table><tr><th>File</th><th>Lines</th></tr>
-        <tr><td><code>songlyricslooper.py</code></td><td>49</td></tr>
-        <tr><td><code>README.md</code></td><td>2</td></tr>
-        <tr><td><code>LICENSE</code></td><td>0</td></tr>
-        </table>
-        <p>Names doing the work: <span class="mono">no named functions in the snapshot</span>.</p>
-      </section>
-      <section id="sheets">
-        <h2>Drawn by hand</h2>
-        <p>I sketch my projects on notebook paper so I have to
-        understand them well enough to draw them. The full set,
-        with the counts and how they were counted, is the
-        <a href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper/tree/main/Song-Lyrics-Looper-Visuals">Song-Lyrics-Looper-Visuals</a>
-        folder in the repo. Nothing is drawn over the binder holes.
-        That is a rule, not a style.</p>
-        <div class="shots">
-          <img src="assets/architecture.png" alt="Hand drawn architecture sheet for Song Lyrics Looper">
-          <img src="assets/flowchart.png" alt="Hand drawn flowchart sheet for Song Lyrics Looper">
-          <img src="assets/product-map.png" alt="Hand drawn product map sheet for Song Lyrics Looper">
-        </div>
-      </section>
-    </div>
-  </section>
+<div class="shore"></div>
+<section class="board"><h2>How to run it</h2><div class="chalk">python3 songlyricslooper.py</div><p>No arguments prints the song and exits 0. The flags <code>--help</code> and <code>-h</code> print a one line usage note and exit 0. Any other argument prints the usage note to standard error and exits 2, with none of the song printed.</p><div class="foot"></div></section>
+<div class="shore short"></div>
+<section class="board"><h2>What comes out</h2><p>A tally the visitor can follow line by line:</p><table><tr><td>Chorus</td><td>3 6 9 12 15 18 21 24 27 30, printed twice</td></tr><tr><td>Verses</td><td>counting down from 3 times 10 is 30 through 3 times 2 is 6</td></tr><tr><td>Closing line</td><td>3 times 1 is 3 of course</td></tr><tr><td>Chorus again</td><td>twice more</td></tr></table><p>Forty one lines every run, four chorus lines in total, identical byte for byte between runs.</p><div class="foot"></div></section>
+<div class="shore short"></div>
+<section class="board" id="proof"><h2>Proof</h2><div class="chalk">python3 -m unittest</div><p>Ten tests passing. They pin the full song text, the line count, the chorus count, the verse products in order, the closing line, the argument behaviour, and the fact that importing the module prints nothing.</p><div class="foot"></div></section>
+<section class="board"><h2>The files</h2><p class="small"><code>songlyricslooper.py</code>, the script. <code>test_songlyricslooper.py</code>, the unittest suite. The GPL-3.0 licence. Logo and banner images. The song is also written out in the <a href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper"><span class="shoe"></span>repo README</a>, board by board.</p><div class="foot"></div></section>
 </main>
-<footer>
-  <p>Song Lyrics Looper is one of my projects. This page was written
-  from the repo itself on 2026-10-30: the counts are the
-  repo's counts, the code is the repo's code, and the gaps are the
-  repo's gaps.</p>
-</footer>
+<footer><p>The boards stay up for the next passer by. The count reaches thirty, comes back down to one, and the shallows are smooth again.</p></footer>
+<script>var w=document.getElementById('waterband');addEventListener('scroll',function(){var t=Math.min(1,scrollY/600);w.style.background='rgb('+(34-14*t)+','+(56-18*t)+','+(47-16*t)+')';},{passive:true});</script>
 </body>
 </html>
