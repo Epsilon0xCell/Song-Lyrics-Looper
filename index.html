@@ -3,55 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Song-Lyrics-Looper: Kelpie's Loch Warning Signs</title>
+<title>Song-Lyrics-Looper: The Music Box</title>
 <meta name="description" content="A Python 3 script, standard library only, that reads no input and prints one fixed counting song about the three times table: 41 lines, the same every run.">
 <style>
-@font-face{font-family:'Anek Telugu';src:url('fonts/AnekTelugu.ttf') format('truetype');}
-@font-face{font-family:'Bitter';src:url('fonts/Bitter.ttf') format('truetype');}
-:root{--smoke:#5c665c;--teal:#103a3c;--tealdk:#0b2c2e;--gold:#cea434;--ember:#b23422;--off:#f2eee2}
-*{box-sizing:border-box} body{margin:0;background:var(--smoke);color:var(--off);font-family:'Bitter',serif;line-height:1.65}
-h1,h2{font-family:'Anek Telugu',sans-serif;color:var(--gold)}
-.hero{padding:2rem 6vw 1rem;max-width:1080px;margin:0 auto}.hero img.wide{width:100%;height:auto;display:block}
-.water{height:54px;background:#22382f;margin-top:1rem;transition:background 0.6s}
-.hero .row{display:flex;gap:1.1rem;align-items:flex-start;margin-top:1rem}.hero .row img{width:92px;height:92px}
-.hero h1{margin:.1rem 0 .3rem;font-size:2rem}.hero p{max-width:44rem}
-main{padding:0 6vw 3rem;max-width:1080px;margin:0 auto}
-.board{background:var(--teal);border:2px solid var(--tealdk);padding:1.2rem 1.5rem;margin:1.6rem 0;position:relative;background-image:linear-gradient(90deg,transparent 24%,rgba(0,0,0,.25) 25%,transparent 26%,transparent 49%,rgba(0,0,0,.25) 50%,transparent 51%,transparent 74%,rgba(0,0,0,.25) 75%,transparent 76%)}
-.board:before,.board:after{content:'';position:absolute;width:10px;height:10px;border-radius:50%;background:#8a8578;top:10px}
-.board:before{left:10px}.board:after{right:10px}
-.board .foot{height:8px;background:var(--ember);margin:1rem -1.5rem -1.2rem}
-.board h2{margin:.1rem 0 .5rem}.board p{margin:.4rem 0}
-.chalk{background:#101414;padding:1rem 1.2rem;overflow-x:auto;font-family:monospace;color:#e8e4d2}
-.btn{display:inline-block;background:var(--teal);color:var(--gold);font-family:'Anek Telugu',sans-serif;text-decoration:none;padding:.55rem 1.1rem .7rem;border-top:3px solid #d8cba0;position:relative;margin:.3rem .4rem .3rem 0}
-.btn:after{content:'';position:absolute;left:50%;bottom:-12px;width:8px;height:12px;background:var(--tealdk)}
-.btn:hover{color:#e8bc4e}.btn:active{transform:translateY(2px)}
-.btn:focus-visible{outline:2px dashed #e8e2cc;outline-offset:-6px}
-a{color:#e8d9a0}a .shoe{display:inline-block;width:.6em;height:.6em;border:3px solid var(--ember);border-top:none;border-radius:0 0 .6em .6em;margin-right:.4em;vertical-align:baseline}
-a:hover .shoe{background:var(--ember)}
-.shore{border-top:2px solid #39423c;margin:2.2rem auto;position:relative;width:100%;height:0}
-.shore:after{content:'';position:absolute;left:50%;top:-9px;width:4px;height:16px;background:#39423c}
-.shore.short{width:36%}
-table{border-collapse:collapse}td{padding:.15rem .8rem .15rem 0;font-family:monospace;color:#e8e4d2}
+@font-face{font-family:'Sacramento';src:url('fonts/Sacramento-400.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'Quicksand';src:url('fonts/Quicksand-400.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'Quicksand';src:url('fonts/Quicksand-500.woff2') format('woff2');font-weight:500}
+@font-face{font-family:'Quicksand';src:url('fonts/Quicksand-600.woff2') format('woff2');font-weight:600}
+@font-face{font-family:'Quicksand';src:url('fonts/Quicksand-700.woff2') format('woff2');font-weight:700}
+:root{--brass:#a8822f;--brasslt:#c9a44a;--velvet:#7c1d2d;--velvetdk:#571221;--steel:#5d6165;--ivory:#f6f0dd;--ink:#2c2418}
+*{box-sizing:border-box} body{margin:0;background:var(--velvetdk);color:var(--ink);font-family:'Quicksand',sans-serif;line-height:1.65}
+h1,h2{font-family:'Sacramento',cursive;color:var(--velvet);font-weight:400}
+.hero{background:linear-gradient(160deg,var(--velvet) 0%,var(--velvetdk) 78%);padding:2.2rem 6vw 1.6rem}
+.hero .inner{max-width:1020px;margin:0 auto}
+.hero img.wide{width:100%;height:auto;display:block;border:3px solid var(--brasslt);border-radius:6px}
+.hero .row{display:flex;gap:1.1rem;align-items:flex-start;margin-top:1.2rem}
+.hero .row img{width:92px;height:92px;border-radius:50%;border:2px solid var(--brasslt)}
+.hero h1{margin:.1rem 0 .3rem;font-size:3rem;color:var(--ivory)}
+.hero p{max-width:44rem;color:#efe3c2}
+.pins{height:14px;max-width:1020px;margin:1.4rem auto 0;background-image:radial-gradient(circle,var(--brasslt) 3.2px,transparent 4px);background-size:26px 14px;background-repeat:repeat-x;opacity:.85}
+main{padding:0 6vw 3rem;max-width:1020px;margin:0 auto}
+.turn{background:var(--ivory);border:1px solid #ddd2ae;border-top:5px solid var(--brass);border-radius:8px;padding:1.2rem 1.5rem;margin:1.6rem 0;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.turn h2{margin:.1rem 0 .5rem;font-size:2rem}
+.turn p{margin:.4rem 0}
+.comb{background:#33373b;color:#e9e2cb;padding:1rem 1.2rem;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;border-radius:4px;border-left:6px solid var(--steel)}
+.btn{display:inline-block;background:var(--brass);color:#fff8e6;font-family:'Quicksand',sans-serif;font-weight:700;text-decoration:none;padding:.55rem 1.1rem;border-radius:999px;margin:.3rem .4rem .3rem 0}
+.btn:hover{background:var(--brasslt);color:var(--ink)}.btn:active{transform:translateY(2px)}
+.btn:focus-visible{outline:2px dashed var(--ivory);outline-offset:3px}
+a{color:var(--velvet);font-weight:600}
+table{border-collapse:collapse}td{padding:.15rem .8rem .15rem 0}
+td:first-child{font-weight:700;color:var(--velvet);white-space:nowrap}
 .small{font-size:.92rem}
-footer{padding:0 6vw 2.5rem;max-width:1080px;margin:0 auto;color:#2e362e}
+footer{padding:0 6vw 2.5rem;max-width:1020px;margin:0 auto;color:#c9b98d}
 </style>
 </head>
 <body>
 <header class="hero">
-<img class="wide" src="assets/intro-banner.png" alt="Bare sign posts by a flooded path on a peat dark loch, hoofprints in the shallows">
-<div class="water" id="waterband" aria-hidden="true"></div>
-<div class="row"><img src="assets/logo.png" alt="Warning board with a gold horse head"><div><h1>Song-Lyrics-Looper</h1><p>A Python 3 script, standard library only, reads no input, asks nothing, and prints one fixed counting song about the three times table, then exits. The boards below are read once, in passing, which is all the attention this script asks.</p><p><a class="btn" href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper">Open the repo</a> <a class="btn" href="#proof">The proof board</a></p></div></div>
+<div class="inner">
+<img class="wide" src="assets/intro-banner.png" alt="The pinned brass cylinder close up, its seam and cross mark at the left end, the steel comb teeth alongside it and crimson velvet lining the box">
+<div class="row"><img src="assets/logo.png" alt="Brass music box cylinder in macro seen through a round vignette, one steel comb tooth resting on the pin about to play"><div><h1>Song-Lyrics-Looper</h1><p>A Python 3 script, standard library only, reads no input, asks nothing, and prints one fixed counting song about the three times table, then exits. Like the pinned cylinder in a music box, it plays the same tune in the same order on every turn.</p><p><a class="btn" href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper">Open the repo</a> <a class="btn" href="#proof">The proof</a></p></div></div>
+<div class="pins" aria-hidden="true"></div>
+</div>
 </header>
 <main>
-<div class="shore"></div>
-<section class="board"><h2>How to run it</h2><div class="chalk">python3 songlyricslooper.py</div><p>No arguments prints the song and exits 0. The flags <code>--help</code> and <code>-h</code> print a one line usage note and exit 0. Any other argument prints the usage note to standard error and exits 2, with none of the song printed.</p><div class="foot"></div></section>
-<div class="shore short"></div>
-<section class="board"><h2>What comes out</h2><p>A tally the visitor can follow line by line:</p><table><tr><td>Chorus</td><td>3 6 9 12 15 18 21 24 27 30, printed twice</td></tr><tr><td>Verses</td><td>counting down from 3 times 10 is 30 through 3 times 2 is 6</td></tr><tr><td>Closing line</td><td>3 times 1 is 3 of course</td></tr><tr><td>Chorus again</td><td>twice more</td></tr></table><p>Forty one lines every run, four chorus lines in total, identical byte for byte between runs.</p><div class="foot"></div></section>
-<div class="shore short"></div>
-<section class="board" id="proof"><h2>Proof</h2><div class="chalk">python3 -m unittest</div><p>Ten tests passing. They pin the full song text, the line count, the chorus count, the verse products in order, the closing line, the argument behaviour, and the fact that importing the module prints nothing.</p><div class="foot"></div></section>
-<section class="board"><h2>The files</h2><p class="small"><code>songlyricslooper.py</code>, the script. <code>test_songlyricslooper.py</code>, the unittest suite. The GPL-3.0 licence. Logo and banner images. The song is also written out in the <a href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper"><span class="shoe"></span>repo README</a>, board by board.</p><div class="foot"></div></section>
+<section class="turn"><h2>How to run it</h2><div class="comb">python3 songlyricslooper.py</div><p>No arguments prints the song and exits 0. The flags <code>--help</code> and <code>-h</code> print a one line usage note and exit 0. Any other argument prints the usage note to standard error and exits 2, with none of the song printed.</p></section>
+<section class="turn"><h2>What comes out</h2><p>A tally the visitor can follow line by line:</p><table><tr><td>Chorus</td><td>3 6 9 12 15 18 21 24 27 30, printed twice</td></tr><tr><td>Verses</td><td>counting down from 3 times 10 is 30 through 3 times 2 is 6</td></tr><tr><td>Closing line</td><td>3 times 1 is 3 of course</td></tr><tr><td>Chorus again</td><td>twice more</td></tr></table><p>Forty one lines every run, four chorus lines in total, identical byte for byte between runs.</p></section>
+<section class="turn" id="proof"><h2>Proof</h2><div class="comb">python3 -m unittest</div><p>Ten tests, all passing. They pin the full song text byte for byte, the 41 line count, the four chorus lines, the verse products in order, the closing line, the argument behaviour, and the fact that importing the module prints nothing.</p></section>
+<section class="turn"><h2>The files</h2><p class="small"><code>songlyricslooper.py</code>, the script. <code>test_songlyricslooper.py</code>, the unittest suite. <code>LICENSE</code>, the GPL-3.0 licence. Logo and banner images. The song is also written out in the <a href="https://github.com/Epsilon0xCell/Song-Lyrics-Looper">repo README</a>, verse by verse.</p></section>
 </main>
-<footer><p>The boards stay up for the next passer by. The count reaches thirty, comes back down to one, and the shallows are smooth again.</p></footer>
-<script>var w=document.getElementById('waterband');addEventListener('scroll',function(){var t=Math.min(1,scrollY/600);w.style.background='rgb('+(34-14*t)+','+(56-18*t)+','+(47-16*t)+')';},{passive:true});</script>
+<footer><p>Turn the crank and the count reaches thirty, comes back down to one, and starts again at exactly the same pin.</p></footer>
 </body>
 </html>
