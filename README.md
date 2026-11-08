@@ -1,9 +1,11 @@
-![Intro scenery](intro-banner.png)
+![Intro scenery: the pinned brass cylinder close up, its seam and cross mark showing at the left end, the steel comb teeth alongside it and crimson velvet lining the box](intro-banner.png)
 
 
 # Song-Lyrics-Looper
 
-![Wordmark banner](banner.png)
+![Wordmark banner: an open music box on crimson velvet, its pinned brass cylinder under the steel comb and the crank at the front](banner.png)
+
+<p align="center"><img src="logo.png" alt="Song-Lyrics-Looper logo: a brass music box cylinder in macro seen through a round vignette, rows of tiny raised pins across its surface and one steel comb tooth resting on the pin about to play" width="200"></p>
 
 ![Animated scene](scene.svg)
 
